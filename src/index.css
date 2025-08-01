@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    /* Cores quadrinhos */
+    --background: 240 10% 8%;
+    --foreground: 60 9% 98%;
+
+    --card: 240 8% 12%;
+    --card-foreground: 60 9% 98%;
+
+    --popover: 240 8% 12%;
+    --popover-foreground: 60 9% 98%;
+
+    /* Main-Color Blue*/
+    --primary: 210 100% 55%;
+    --primary-foreground: 240 10% 8%;
+    --primary-glow: 210 100% 70%;
+
+    /* Secondary-Color Red */
+    --secondary: 0 85% 60%;
+    --secondary-foreground: 60 9% 98%;
+
+    /* Sub-elementes color gray*/
+    --muted: 240 5% 20%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Contrast-color Yellow */
+    --accent: 45 100% 65%;
+    --accent-foreground: 240 10% 8%;
+
+    /* Danger Red */
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 210 100% 55%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 55%), hsl(260 100% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(240 8% 12%), hsl(240 6% 16%));
+    --gradient-accent: linear-gradient(90deg, hsl(45 100% 65%), hsl(35 100% 60%));
+    
+    /* Shadows */
+    --shadow-hero: 0 20px 40px -10px hsl(210 100% 55% / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(240 10% 5% / 0.5);
+    --shadow-glow: 0 0 30px hsl(210 100% 70% / 0.4);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode */
+  .light {
+    --background: 60 9% 98%;
+    --foreground: 240 10% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 60 9% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: radial-gradient(circle at 25% 25%, hsl(210 100% 55% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, hsl(260 100% 60% / 0.1) 0%, transparent 50%);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* style button effects */
+  .btn-hero {
+    @apply relative overflow-hidden;
+    background: var(--gradient-hero);
+    box-shadow: var(--shadow-hero);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-hero:active {
+    transform: translateY(0);
+  }
+
+  /* Card Styles */
+  .card-hero {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-smooth);
+  }
+
+  .card-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hero);
+  }
+
+  /* glow effect favorites */
+  .favorite-glow {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.5);
+  }
+}
