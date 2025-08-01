@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/superhero/:path*",
+      "destination": "/api/superhero"
+    }
+  ]
+}
